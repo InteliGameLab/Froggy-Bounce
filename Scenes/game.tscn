@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://cq2r8m6fpofq1"]
+
+[ext_resource type="PackedScene" uid="uid://7epf2yfvlfdh" path="res://Scenes/obstacles/frog.tscn" id="1_8bbvd"]
+[ext_resource type="PackedScene" uid="uid://cqiuj0x121cby" path="res://Scenes/background.tscn" id="1_ff8f1"]
+[ext_resource type="PackedScene" uid="uid://dsa7cndp0amm5" path="res://Scenes/ground.tscn" id="2_u30l8"]
+[ext_resource type="PackedScene" uid="uid://cilixp4gshes1" path="res://Scenes/fire.tscn" id="3_t10me"]
+[ext_resource type="Script" path="res://pontuation.gd" id="4_er27y"]
+[ext_resource type="Texture2D" uid="uid://blx7tn52h6cc2" path="res://Sprites/ParallaxBackground/Parallax2/near_ground.png" id="5_nxv3n"]
+[ext_resource type="Texture2D" uid="uid://defcvw7ikngyn" path="res://Sprites/points.png" id="7_ha8jq"]
+[ext_resource type="FontFile" uid="uid://cc1glg8rxf78q" path="res://Fonts/Splatch.ttf" id="8_c3qbq"]
+[ext_resource type="Shader" path="res://Shaders/rain.gdshader" id="9_447gw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3aqp7"]
+shader = ExtResource("9_447gw")
+shader_parameter/count = 100
+shader_parameter/slant = 0.1
+shader_parameter/speed = 20.0
+shader_parameter/blur = 0.002
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(0.005, 0.2)
+
+[node name="Game" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_ff8f1")]
+
+[node name="ground" parent="." instance=ExtResource("2_u30l8")]
+
+[node name="fire" parent="." instance=ExtResource("3_t10me")]
+z_index = 100
+position = Vector2(-2500, 0)
+
+[node name="frog" parent="." instance=ExtResource("1_8bbvd")]
+position = Vector2(287, 258)
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 11
+scale = Vector2(10, 10)
+transform = Transform2D(10, 0, 0, 10, 0, 0)
+scroll_base_scale = Vector2(0.1, 0.1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(-2.38419e-07, 4)
+texture = ExtResource("5_nxv3n")
+centered = false
+
+[node name="pontuation" type="CanvasLayer" parent="."]
+script = ExtResource("4_er27y")
+
+[node name="ColorRect" type="ColorRect" parent="pontuation"]
+material = SubResource("ShaderMaterial_3aqp7")
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="pontuation"]
+texture_filter = 1
+position = Vector2(1190, 30)
+scale = Vector2(6, 6)
+texture = ExtResource("7_ha8jq")
+
+[node name="Label" type="Label" parent="pontuation"]
+offset_left = 1080.0
+offset_right = 1272.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0.588235, 0.494118, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_c3qbq")
+theme_override_font_sizes/font_size = 20
+text = "10000 m"
+horizontal_alignment = 2
+max_lines_visible = 1
+text_direction = 1

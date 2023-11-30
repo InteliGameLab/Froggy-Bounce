@@ -1,0 +1,90 @@
+[gd_scene load_steps=16 format=3 uid="uid://1t043nf14rom"]
+
+[ext_resource type="Script" path="res://Scripts/menu_scene.gd" id="1_06qpm"]
+[ext_resource type="Texture2D" uid="uid://b5hg1vksp1vc" path="res://Sprites/background_first_scene.png" id="1_g4qw7"]
+[ext_resource type="Texture2D" uid="uid://c4246ax6hof20" path="res://Sprites/blue_button01.png" id="3_jcsoe"]
+[ext_resource type="Texture2D" uid="uid://nqe54ptnrw7" path="res://Sprites/Logo/logo_froggy_bounce1.png" id="3_uiprv"]
+[ext_resource type="Texture2D" uid="uid://mhywr2bku41b" path="res://Sprites/Logo/logo_froggy_bounce2.png" id="4_ii5x7"]
+[ext_resource type="Texture2D" uid="uid://dn3wl6nco45p5" path="res://Sprites/blue_button02.png" id="4_p2ub4"]
+[ext_resource type="Texture2D" uid="uid://b5o5csb6iejfh" path="res://Sprites/blue_button03.png" id="5_emxqg"]
+[ext_resource type="Texture2D" uid="uid://blr0w3t5imudm" path="res://Sprites/Logo/logo_froggy_bounce3.png" id="5_pu78m"]
+[ext_resource type="Texture2D" uid="uid://d1bnlu83w2jjw" path="res://Sprites/Logo/logo_froggy_bounce4.png" id="6_kqh6f"]
+[ext_resource type="Texture2D" uid="uid://k6de7rf8oxrh" path="res://Sprites/Logo/logo_froggy_bounce5.png" id="7_0e25c"]
+[ext_resource type="Texture2D" uid="uid://cf8jcnkfvw51r" path="res://Sprites/Logo/logo_froggy_bounce6.png" id="8_hexvr"]
+[ext_resource type="Texture2D" uid="uid://bu1m6l64lcvjj" path="res://Sprites/Logo/logo_froggy_bounce8.png" id="9_k1h7a"]
+
+[sub_resource type="Animation" id="Animation_rdtv7"]
+resource_name = "Logo"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("logo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_uiprv"), ExtResource("4_ii5x7"), ExtResource("5_pu78m"), ExtResource("6_kqh6f"), ExtResource("7_0e25c"), ExtResource("8_hexvr"), ExtResource("9_k1h7a"), ExtResource("9_k1h7a")]
+}
+
+[sub_resource type="Animation" id="Animation_fxsfl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("logo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_uiprv")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vi720"]
+_data = {
+"Logo": SubResource("Animation_rdtv7"),
+"RESET": SubResource("Animation_fxsfl")
+}
+
+[node name="menu_scene" type="Node2D"]
+script = ExtResource("1_06qpm")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_g4qw7")
+
+[node name="logo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(641, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("3_uiprv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vi720")
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 480.0
+offset_top = 456.0
+offset_right = 670.0
+offset_bottom = 505.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_jcsoe")
+texture_pressed = ExtResource("4_p2ub4")
+texture_hover = ExtResource("5_emxqg")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 52.0
+offset_right = 142.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 30
+text = "START"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

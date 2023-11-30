@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://csqhk3evg6r6x"]
+
+[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="1_te42f"]
+
+[resource]
+shader = ExtResource("1_te42f")
+shader_parameter/tint = Color(0.164706, 0.827451, 0.968627, 0)

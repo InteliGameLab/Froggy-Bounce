@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsa7cndp0amm5"]
+
+[ext_resource type="Script" path="res://Scripts/ground.gd" id="1_txiif"]
+
+[node name="ground" type="Node2D"]
+script = ExtResource("1_txiif")
+metadata/_edit_horizontal_guides_ = []
