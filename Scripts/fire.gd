@@ -37,6 +37,8 @@ func _on_body_entered(body):
 func _process(delta):
 	move(delta)
 	burned_boost(delta)
-	
+
+func _ready():
+	$fireSound.play()
 
 	

@@ -1,14 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://cq2r8m6fpofq1"]
+[gd_scene load_steps=16 format=3 uid="uid://cq2r8m6fpofq1"]
 
 [ext_resource type="PackedScene" uid="uid://7epf2yfvlfdh" path="res://Scenes/obstacles/frog.tscn" id="1_8bbvd"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_8r7ad"]
 [ext_resource type="PackedScene" uid="uid://cqiuj0x121cby" path="res://Scenes/background.tscn" id="1_ff8f1"]
 [ext_resource type="PackedScene" uid="uid://dsa7cndp0amm5" path="res://Scenes/ground.tscn" id="2_u30l8"]
-[ext_resource type="PackedScene" uid="uid://cilixp4gshes1" path="res://Scenes/fire.tscn" id="3_t10me"]
+[ext_resource type="PackedScene" uid="uid://cilixp4gshes1" path="res://Scenes/obstacles/fire.tscn" id="3_t10me"]
 [ext_resource type="Script" path="res://pontuation.gd" id="4_er27y"]
-[ext_resource type="Texture2D" uid="uid://blx7tn52h6cc2" path="res://Sprites/ParallaxBackground/Parallax2/near_ground.png" id="5_nxv3n"]
+[ext_resource type="Texture2D" uid="uid://blx7tn52h6cc2" path="res://Sprites/Background/Parallax2/near_ground.png" id="5_nxv3n"]
 [ext_resource type="Texture2D" uid="uid://defcvw7ikngyn" path="res://Sprites/points.png" id="7_ha8jq"]
 [ext_resource type="FontFile" uid="uid://cc1glg8rxf78q" path="res://Fonts/Splatch.ttf" id="8_c3qbq"]
 [ext_resource type="Shader" path="res://Shaders/rain.gdshader" id="9_447gw"]
+[ext_resource type="AudioStream" uid="uid://bdlgkheqcwno0" path="res://Sounds/ambientRain.mp3" id="10_cso6i"]
+[ext_resource type="AudioStream" uid="uid://cnrpaff23oi5w" path="res://Sounds/ambientForest.mp3" id="11_vh2j0"]
+[ext_resource type="AudioStream" uid="uid://bbgqytoqgstke" path="res://Sounds/gameSound1.mp3" id="12_73sap"]
+[ext_resource type="AudioStream" uid="uid://5gnqdefbompk" path="res://Sounds/runSound.mp3" id="14_35l65"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3aqp7"]
 shader = ExtResource("9_447gw")
@@ -20,8 +25,9 @@ shader_parameter/colour = Color(1, 1, 1, 1)
 shader_parameter/size = Vector2(0.005, 0.2)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_8r7ad")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("1_ff8f1")]
+[node name="background" parent="." instance=ExtResource("1_ff8f1")]
 
 [node name="ground" parent="." instance=ExtResource("2_u30l8")]
 
@@ -32,17 +38,17 @@ position = Vector2(-2500, 0)
 [node name="frog" parent="." instance=ExtResource("1_8bbvd")]
 position = Vector2(287, 258)
 
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+[node name="frontground" type="ParallaxBackground" parent="."]
 layer = 11
 scale = Vector2(10, 10)
 transform = Transform2D(10, 0, 0, 10, 0, 0)
 scroll_base_scale = Vector2(0.1, 0.1)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="frontground"]
 motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(1000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="frontground/ParallaxLayer"]
 texture_filter = 1
 position = Vector2(-2.38419e-07, 4)
 texture = ExtResource("5_nxv3n")
@@ -79,3 +85,26 @@ text = "10000 m"
 horizontal_alignment = 2
 max_lines_visible = 1
 text_direction = 1
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="rain" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("10_cso6i")
+autoplay = true
+max_distance = 9.22337e+18
+
+[node name="florest" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("11_vh2j0")
+autoplay = true
+max_distance = 9.22337e+18
+
+[node name="calmMusic" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("12_73sap")
+volume_db = 5.0
+autoplay = true
+max_distance = 9.22337e+18
+
+[node name="intenseMusic" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("14_35l65")
+autoplay = true
+max_distance = 9.22337e+18

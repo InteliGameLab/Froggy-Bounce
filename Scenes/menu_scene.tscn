@@ -1,17 +1,42 @@
-[gd_scene load_steps=16 format=3 uid="uid://1t043nf14rom"]
+[gd_scene load_steps=33 format=3 uid="uid://1t043nf14rom"]
 
-[ext_resource type="Script" path="res://Scripts/menu_scene.gd" id="1_06qpm"]
-[ext_resource type="Texture2D" uid="uid://b5hg1vksp1vc" path="res://Sprites/background_first_scene.png" id="1_g4qw7"]
-[ext_resource type="Texture2D" uid="uid://c4246ax6hof20" path="res://Sprites/blue_button01.png" id="3_jcsoe"]
-[ext_resource type="Texture2D" uid="uid://nqe54ptnrw7" path="res://Sprites/Logo/logo_froggy_bounce1.png" id="3_uiprv"]
-[ext_resource type="Texture2D" uid="uid://mhywr2bku41b" path="res://Sprites/Logo/logo_froggy_bounce2.png" id="4_ii5x7"]
-[ext_resource type="Texture2D" uid="uid://dn3wl6nco45p5" path="res://Sprites/blue_button02.png" id="4_p2ub4"]
-[ext_resource type="Texture2D" uid="uid://b5o5csb6iejfh" path="res://Sprites/blue_button03.png" id="5_emxqg"]
-[ext_resource type="Texture2D" uid="uid://blr0w3t5imudm" path="res://Sprites/Logo/logo_froggy_bounce3.png" id="5_pu78m"]
-[ext_resource type="Texture2D" uid="uid://d1bnlu83w2jjw" path="res://Sprites/Logo/logo_froggy_bounce4.png" id="6_kqh6f"]
-[ext_resource type="Texture2D" uid="uid://k6de7rf8oxrh" path="res://Sprites/Logo/logo_froggy_bounce5.png" id="7_0e25c"]
-[ext_resource type="Texture2D" uid="uid://cf8jcnkfvw51r" path="res://Sprites/Logo/logo_froggy_bounce6.png" id="8_hexvr"]
-[ext_resource type="Texture2D" uid="uid://bu1m6l64lcvjj" path="res://Sprites/Logo/logo_froggy_bounce8.png" id="9_k1h7a"]
+[ext_resource type="Script" path="res://Scripts/menu_scene.gd" id="1_m3sdm"]
+[ext_resource type="Texture2D" uid="uid://mb2cvslct0cl" path="res://Sprites/Background/MenuBacKGround/menuBg1.png" id="2_v2s0m"]
+[ext_resource type="Texture2D" uid="uid://h1koabmdnkx6" path="res://Sprites/Background/MenuBacKGround/menuBg2.png" id="3_adyq7"]
+[ext_resource type="Texture2D" uid="uid://e8ifnoym3rhy" path="res://Sprites/Background/MenuBacKGround/menuBg3.png" id="4_bd7nd"]
+[ext_resource type="Shader" path="res://Shaders/leaf_move.gdshader" id="5_2rwbi"]
+[ext_resource type="Texture2D" uid="uid://dt67vygb4ecs5" path="res://Sprites/Background/MenuBacKGround/menuBg4.png" id="6_naayx"]
+[ext_resource type="Texture2D" uid="uid://ccdet5vo2tqkd" path="res://Sprites/Background/MenuBacKGround/menuBg5.png" id="7_e6eu0"]
+[ext_resource type="Texture2D" uid="uid://nqe54ptnrw7" path="res://Sprites/Logo/logo_froggy_bounce1.png" id="8_gm721"]
+[ext_resource type="Texture2D" uid="uid://mhywr2bku41b" path="res://Sprites/Logo/logo_froggy_bounce2.png" id="9_lsrg4"]
+[ext_resource type="Texture2D" uid="uid://blr0w3t5imudm" path="res://Sprites/Logo/logo_froggy_bounce3.png" id="10_xarrd"]
+[ext_resource type="Texture2D" uid="uid://d1bnlu83w2jjw" path="res://Sprites/Logo/logo_froggy_bounce4.png" id="11_4eoek"]
+[ext_resource type="Texture2D" uid="uid://k6de7rf8oxrh" path="res://Sprites/Logo/logo_froggy_bounce5.png" id="12_jra28"]
+[ext_resource type="Texture2D" uid="uid://cf8jcnkfvw51r" path="res://Sprites/Logo/logo_froggy_bounce6.png" id="13_avjbc"]
+[ext_resource type="Texture2D" uid="uid://bu1m6l64lcvjj" path="res://Sprites/Logo/logo_froggy_bounce8.png" id="14_uqtgd"]
+[ext_resource type="PackedScene" uid="uid://cpyvfmka6h02n" path="res://Scenes/obstacles/light_ray.tscn" id="15_bncqq"]
+[ext_resource type="Texture2D" uid="uid://c4246ax6hof20" path="res://Sprites/blue_button01.png" id="16_woqj2"]
+[ext_resource type="Texture2D" uid="uid://dn3wl6nco45p5" path="res://Sprites/blue_button02.png" id="17_2rrvf"]
+[ext_resource type="Texture2D" uid="uid://b5o5csb6iejfh" path="res://Sprites/blue_button03.png" id="18_ve3pu"]
+[ext_resource type="FontFile" uid="uid://bqwutd7djs0qt" path="res://Fonts/Sandler Trial.otf" id="19_8mvix"]
+[ext_resource type="AudioStream" uid="uid://b4voptdoxpgw2" path="res://Sounds/startSound.mp3" id="20_r380u"]
+[ext_resource type="Texture2D" uid="uid://ch8w52xaumcam" path="res://Sprites/CalciferStudios.png" id="20_yd1hf"]
+[ext_resource type="AudioStream" uid="uid://wmo88fbqmak" path="res://Sounds/studio.mp3" id="21_hesdo"]
+[ext_resource type="AudioStream" uid="uid://cjnvnmfhj5sny" path="res://Sounds/menuSound.mp3" id="23_pnhr7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sb8w5"]
+shader = ExtResource("5_2rwbi")
+shader_parameter/vertical_amplitude = 1.0
+shader_parameter/vertical_speed = 2.0
+shader_parameter/horizontal_amplitude = 2.0
+shader_parameter/horizontal_speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmfi1"]
+shader = ExtResource("5_2rwbi")
+shader_parameter/vertical_amplitude = 2.0
+shader_parameter/vertical_speed = 1.0
+shader_parameter/horizontal_amplitude = 3.0
+shader_parameter/horizontal_speed = 1.5
 
 [sub_resource type="Animation" id="Animation_rdtv7"]
 resource_name = "Logo"
@@ -20,14 +45,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("logo:texture")
+tracks/0/path = NodePath("startScreen/logo:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_uiprv"), ExtResource("4_ii5x7"), ExtResource("5_pu78m"), ExtResource("6_kqh6f"), ExtResource("7_0e25c"), ExtResource("8_hexvr"), ExtResource("9_k1h7a"), ExtResource("9_k1h7a")]
+"values": [ExtResource("8_gm721"), ExtResource("9_lsrg4"), ExtResource("10_xarrd"), ExtResource("11_4eoek"), ExtResource("12_jra28"), ExtResource("13_avjbc"), ExtResource("14_uqtgd"), ExtResource("14_uqtgd")]
 }
 
 [sub_resource type="Animation" id="Animation_fxsfl"]
@@ -35,14 +60,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("logo:texture")
+tracks/0/path = NodePath("startScreen/logo:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_uiprv")]
+"values": [ExtResource("8_gm721")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vi720"]
@@ -51,40 +76,244 @@ _data = {
 "RESET": SubResource("Animation_fxsfl")
 }
 
+[sub_resource type="Animation" id="Animation_d3rgj"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("studioScreen:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("studioScreen:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("studioScreen:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_r4jhh"]
+resource_name = "intro_menu"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("startScreen:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("startScreen:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("startScreen:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("startScreen:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_jc58d"]
+resource_name = "intro_studio"
+length = 3.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("studioScreen:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 3, 3.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("studioScreen:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 3, 3.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("studioScreen:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 3, 3.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("studioScreen:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(3.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sdqsc"]
+_data = {
+"RESET": SubResource("Animation_d3rgj"),
+"intro_menu": SubResource("Animation_r4jhh"),
+"intro_studio": SubResource("Animation_jc58d")
+}
+
 [node name="menu_scene" type="Node2D"]
-script = ExtResource("1_06qpm")
+script = ExtResource("1_m3sdm")
 
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-texture = ExtResource("1_g4qw7")
+[node name="startScreen" type="Node2D" parent="."]
 
-[node name="logo" type="Sprite2D" parent="."]
+[node name="background" type="Node2D" parent="startScreen"]
+texture_filter = 1
+position = Vector2(-100, -100)
+scale = Vector2(10, 10)
+
+[node name="bg1" type="Sprite2D" parent="startScreen/background"]
+texture = ExtResource("2_v2s0m")
+centered = false
+
+[node name="bg2" type="Sprite2D" parent="startScreen/background"]
+texture = ExtResource("3_adyq7")
+centered = false
+
+[node name="bg3" type="Sprite2D" parent="startScreen/background"]
+texture = ExtResource("4_bd7nd")
+centered = false
+
+[node name="bg4" type="Sprite2D" parent="startScreen/background"]
+material = SubResource("ShaderMaterial_sb8w5")
+texture = ExtResource("6_naayx")
+centered = false
+
+[node name="bg5" type="Sprite2D" parent="startScreen/background"]
+z_index = 1
+material = SubResource("ShaderMaterial_qmfi1")
+texture = ExtResource("7_e6eu0")
+centered = false
+
+[node name="logo" type="Sprite2D" parent="startScreen"]
 texture_filter = 1
 position = Vector2(641, 360)
 scale = Vector2(2, 2)
-texture = ExtResource("3_uiprv")
+texture = ExtResource("8_gm721")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="animationStart" type="AnimationPlayer" parent="startScreen"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_vi720")
 }
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="lightRay" parent="startScreen" instance=ExtResource("15_bncqq")]
+offset_left = -200.0
+offset_top = -112.0
+offset_right = 592.0
+offset_bottom = 624.0
+
+[node name="lightRay2" parent="startScreen" instance=ExtResource("15_bncqq")]
+offset_left = 408.0
+offset_top = -152.0
+offset_right = 1112.0
+offset_bottom = 608.0
+
+[node name="startButton" type="TextureButton" parent="."]
 offset_left = 480.0
 offset_top = 456.0
 offset_right = 670.0
 offset_bottom = 505.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("3_jcsoe")
-texture_pressed = ExtResource("4_p2ub4")
-texture_hover = ExtResource("5_emxqg")
+texture_normal = ExtResource("16_woqj2")
+texture_pressed = ExtResource("17_2rrvf")
+texture_hover = ExtResource("18_ve3pu")
 
-[node name="Label" type="Label" parent="TextureButton"]
+[node name="text" type="Label" parent="startButton"]
 layout_mode = 0
 offset_left = 52.0
+offset_top = 8.0
 offset_right = 142.0
-offset_bottom = 45.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("19_8mvix")
 theme_override_font_sizes/font_size = 30
 text = "START"
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="startSound" type="AudioStreamPlayer2D" parent="startButton"]
+stream = ExtResource("20_r380u")
+volume_db = 10.0
+
+[node name="studioScreen" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("20_yd1hf")
+centered = false
+
+[node name="studioSong" type="AudioStreamPlayer2D" parent="studioScreen"]
+stream = ExtResource("21_hesdo")
+pitch_scale = 1.5
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sdqsc")
+}
+
+[node name="menuSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_pnhr7")
+
+[connection signal="pressed" from="startButton" to="." method="_on_texture_button_pressed"]
+[connection signal="animation_finished" from="animation" to="." method="_on_animation_player_animation_finished"]

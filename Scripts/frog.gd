@@ -21,6 +21,7 @@ func movement(delta):
 	
 		move_and_slide()
 	else:
+		play_song("burned")
 		self.z_index = 300
 
 func jump(delta):
@@ -31,6 +32,7 @@ func jump(delta):
 		velocity.x = move_toward(velocity.x,0,friction*delta*0.3)
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		play_song("jump")
 		if power < 0.5:
 			velocity.y = jump_velocity / 1.3
 			velocity.x += 100
@@ -43,6 +45,7 @@ func air_jump():
 		air_jumps = 1
 		
 	if Input.is_action_just_pressed("ui_accept") and (not is_on_floor()) and (air_jumps == 1):
+		play_song("jump")
 		velocity.y = jump_velocity
 		velocity.x += 150
 		air_jumps = 0
@@ -61,30 +64,36 @@ func move(delta):
 func play_animation():
 	if current_animation == "walking" and burned == false:
 		if velocity.x < 30:
-			$AnimationPlayer.play("stand")
+			$animation.play("stand")
 		else:
-			$AnimationPlayer.play("walking")
-			$AnimationPlayer.speed_scale = (velocity.x / max_speed) * 1
+			$animation.play("walking")
+			$animation.speed_scale = (velocity.x / max_speed) * 1
 	
 	elif current_animation == "jump" and burned == false:
 		if velocity.y < -30:
-			$AnimationPlayer.play("jump")
+			$animation.play("jump")
 		elif velocity.y > 30:
-			$AnimationPlayer.play("fall")
+			$animation.play("fall")
 		else:
-			$AnimationPlayer.play("air stand")
+			$animation.play("air stand")
 	
 	elif burned == true and playing == false:
-		$Sprite2D.material = burning_shader
-		$Sprite2D/AnimationPlayer.play("burning")
+		$sprite.material = burning_shader
+		$sprite/spriteAnimation.play("burning")
 		playing = true
+
+func play_song(song):
+	if song == "bunerd":
+		$sons/burned.play()
+	elif song == "jump":
+		$sons/jump.play()
 
 func _physics_process(delta):
 	movement(delta)
 	play_animation()
 			
 func _ready():
-	$Sprite2D.modulate = Color(1,1,1,1)
-	$Sprite2D.material = null
+	$sprite.modulate = Color(1,1,1,1)
+	$sprite.material = null
 	self.z_index = 0
 	playing = false
