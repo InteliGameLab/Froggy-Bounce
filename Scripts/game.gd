@@ -22,7 +22,7 @@ func _process(delta):
 		calmMusic.volume_db =  -10 + (20.0 * (1 - intensity))
 		intenseMusic.volume_db = -30 + (50.0 * (intensity))
 	else:
-		calmMusic.volume_db = move_toward(calmMusic.volume_db,0,10)
+		calmMusic.volume_db = move_toward(calmMusic.volume_db,-30,5)
 		intenseMusic.volume_db = move_toward(intenseMusic.volume_db,-30,5)
 
 func _ready():

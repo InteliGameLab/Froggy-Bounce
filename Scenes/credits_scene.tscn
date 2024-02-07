@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfc8ytqslpnqc"]
+
+[ext_resource type="Script" path="res://Scripts/credits_scene.gd" id="1_mj4a1"]
+[ext_resource type="Texture2D" uid="uid://b5hg1vksp1vc" path="res://Sprites/background_first_scene.png" id="2_qdpco"]
+[ext_resource type="FontFile" uid="uid://bqwutd7djs0qt" path="res://Fonts/Sandler Trial.otf" id="3_76l3q"]
+[ext_resource type="FontFile" uid="uid://cc1glg8rxf78q" path="res://Fonts/Splatch.ttf" id="4_5bb47"]
+[ext_resource type="Texture2D" uid="uid://bexk5hxhtqxfe" path="res://Sprites/frog_stand.png" id="5_4hk67"]
+[ext_resource type="Texture2D" uid="uid://djc1gfx1hht1p" path="res://Sprites/instagram-logo-instagram-icon-transparent-free-png.webp" id="6_0mu8i"]
+[ext_resource type="Texture2D" uid="uid://ckcpk6tgx8wnt" path="res://Sprites/linkedin-logo-linkedin-icon-transparent-free-png.webp" id="7_10ige"]
+[ext_resource type="Texture2D" uid="uid://c4246ax6hof20" path="res://Sprites/blue_button01.png" id="8_w5s7l"]
+[ext_resource type="Texture2D" uid="uid://dn3wl6nco45p5" path="res://Sprites/blue_button02.png" id="9_yabq6"]
+[ext_resource type="Texture2D" uid="uid://b5o5csb6iejfh" path="res://Sprites/blue_button03.png" id="10_acudp"]
+
+[node name="creditsScene" type="Node2D"]
+script = ExtResource("1_mj4a1")
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("2_qdpco")
+centered = false
+
+[node name="text" type="Node2D" parent="."]
+
+[node name="title" type="Label" parent="text"]
+offset_left = 472.0
+offset_top = 32.0
+offset_right = 840.0
+offset_bottom = 176.0
+theme_override_colors/font_outline_color = Color(0, 0.501961, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_76l3q")
+theme_override_font_sizes/font_size = 120
+text = "Credits"
+
+[node name="functions" type="Label" parent="text"]
+offset_left = 96.0
+offset_top = 560.0
+offset_right = 624.0
+offset_bottom = 744.0
+theme_override_colors/font_outline_color = Color(0, 0.501961, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_5bb47")
+theme_override_font_sizes/font_size = 20
+text = "Programming, Game Design
+Level Design, Art (100% Original)"
+horizontal_alignment = 1
+
+[node name="name" type="Label" parent="text"]
+offset_left = 192.0
+offset_top = 480.0
+offset_right = 537.0
+offset_bottom = 552.0
+theme_override_colors/font_outline_color = Color(0, 0.501961, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_76l3q")
+theme_override_font_sizes/font_size = 60
+text = "Breno Santos"
+
+[node name="frog" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(680, 312)
+scale = Vector2(6.30556, 6.31667)
+texture = ExtResource("5_4hk67")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(760, 536)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_0mu8i")
+
+[node name="functions" type="Label" parent="."]
+offset_left = 792.0
+offset_top = 520.0
+offset_right = 1066.0
+offset_bottom = 561.0
+theme_override_colors/font_outline_color = Color(0, 0.501961, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_5bb47")
+theme_override_font_sizes/font_size = 20
+text = "@brenosantos_g
+"
+
+[node name="functions2" type="Label" parent="."]
+offset_left = 792.0
+offset_top = 592.0
+offset_right = 1215.0
+offset_bottom = 677.0
+theme_override_colors/font_outline_color = Color(0, 0.501961, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_5bb47")
+theme_override_font_sizes/font_size = 20
+text = "/breno-santos-0843131b8"
+
+[node name="Linkedin-logo-linkedin-icon-transparent-free-png" type="Sprite2D" parent="."]
+position = Vector2(760, 608)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("7_10ige")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 238.0
+offset_bottom = 89.0
+texture_normal = ExtResource("8_w5s7l")
+texture_pressed = ExtResource("9_yabq6")
+texture_hover = ExtResource("10_acudp")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 5.0
+offset_right = 138.0
+offset_bottom = 41.0
+theme_override_colors/font_outline_color = Color(0, 0.501961, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_76l3q")
+theme_override_font_sizes/font_size = 30
+text = "Voltar"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

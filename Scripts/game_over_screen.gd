@@ -16,6 +16,7 @@ func _physics_process(delta):
 	var character = self.get_parent().get_node("frog")
 	var color_rect = $grayBlur 
 	var shader_material = color_rect.material
+	$looseSong.position = character.position
 	
 	shader_material.set_shader_parameter("character_position_y", character.position.y)
  

@@ -13,7 +13,7 @@ config_version=5
 config/name="Froggy Bounce 2.0"
 run/main_scene="res://Scenes/menu_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/frog_stand.png"
 
 [autoload]
 
@@ -25,3 +25,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=2
 window/stretch/mode="viewport"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
